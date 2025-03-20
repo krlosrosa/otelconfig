@@ -5,7 +5,7 @@ services:
     build: .
     container_name: otel-collector
     volumes:
-      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+      - ./otel-collector-config.yaml:/etc/otel/config.yaml  # Modifique o destino para /etc/otel/config.yaml
     ports:
       - "4317:4317"  # OTLP gRPC
       - "4318:4318"  # OTLP HTTP
