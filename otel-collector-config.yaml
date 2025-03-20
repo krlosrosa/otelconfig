@@ -8,15 +8,12 @@ processors:
   batch:
 
 exporters:
-  # Usando o exportador debug em vez de logging
-  debug:
-    level: debug  # Ajuste o nível conforme necessário
-  logging:
-    level: debug
+  # Substituindo o exportador 'logging' por 'debug' sem a chave 'level'
+  debug: {}
 
 service:
   pipelines:
     logs:
       receivers: [otlp]
       processors: [batch]
-      exporters: [debug, logging]
+      exporters: [debug]
