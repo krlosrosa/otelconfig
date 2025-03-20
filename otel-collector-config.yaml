@@ -4,13 +4,19 @@ receivers:
       grpc:
       http:
 
+processors:
+  batch:
+
 exporters:
+  # Usando o exportador debug em vez de logging
+  debug:
+    level: debug  # Ajuste o nível conforme necessário
   logging:
-    loglevel: debug
+    level: debug
 
 service:
   pipelines:
-    traces:
+    logs:
       receivers: [otlp]
-      processors: []
-      exporters: [logging]
+      processors: [batch]
+      exporters: [debug, logging]
