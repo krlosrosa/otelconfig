@@ -6,7 +6,9 @@ receivers:
 
 exporters:
   otlp:
-    endpoint: 84.247.143.19:9090
+    protocols:
+      http:
+        endpoint: 84.247.143.19:9090
 
 
 service:
