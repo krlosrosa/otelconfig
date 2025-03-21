@@ -9,7 +9,7 @@ processors:
 
 exporters:
   otlp:
-    endpoint: http://84.247.143.19:9090
+    endpoint: https://https://prometheus.ragde.app
     tls:
       insecure: true
       insecure_skip_verify: false
