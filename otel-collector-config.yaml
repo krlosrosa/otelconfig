@@ -9,7 +9,7 @@ processors:
 
 exporters:
   prometheus:
-    endpoint: "84.247.143.19:9090"  # Remova o 'http://'
+    endpoint: "84.247.143.19"  # Remova o 'http://'
   debug: {}  # Substituindo 'logging' por 'debug'
 
 service:
