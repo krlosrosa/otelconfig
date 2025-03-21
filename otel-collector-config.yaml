@@ -1,24 +1,17 @@
 receivers:
   otlp:
     protocols:
-      grpc:
       http:
-
-processors:
-  batch:
+        endpoint: 0.0.0.0:4318
 
 exporters:
-  prometheus:
-    endpoint: "84.247.143.19"  # Remova o 'http://'
-  debug: {}  # Substituindo 'logging' por 'debug'
+  otlp:
+    endpoint: 84.247.143.19:9090
+
 
 service:
+  extensions: [health_check]
   pipelines:
-    logs:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [debug]  # Exportando logs para o debug exporter
     metrics:
       receivers: [otlp]
-      processors: [batch]
-      exporters: [prometheus]  # Exportando métricas para o Prometheus
+      exporters: [otlp]
