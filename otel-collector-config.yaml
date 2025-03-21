@@ -10,15 +10,14 @@ processors:
 exporters:
   prometheus:
     endpoint: "http://84.247.143.19:9090/"
-  logging:  # Este exportador irá lidar com os logs.
-    loglevel: debug
+  debug: {}  # Substituindo 'logging' por 'debug'
 
 service:
   pipelines:
     logs:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging]  # Exportando logs para o logging exporter
+      exporters: [debug]  # Exportando logs para o debug exporter
     metrics:
       receivers: [otlp]
       processors: [batch]
