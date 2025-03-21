@@ -7,6 +7,8 @@ receivers:
 exporters:
   otlp:
     endpoint: http://84.247.143.19:9090
+    tls:
+      insecure: true
 
 
 service:
